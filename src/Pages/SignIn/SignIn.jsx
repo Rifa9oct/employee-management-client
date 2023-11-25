@@ -5,8 +5,8 @@ import { AuthContext } from "../../AuthProvider/AuthContext"
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import logo from "../../assets/logo.png";
-import google from "../../assets/google.png";
 import line from "../../assets/line.png"
+import { FcGoogle } from "react-icons/fc";
 
 const SignIn = () => {
     const [showPassword, setShowPassword] = useState(false);
@@ -51,18 +51,15 @@ const SignIn = () => {
                 <h1 className="header text-3xl font-bold text-black">Employee Management</h1>
             </Link>
             <div className="flex items-center gap-20 justify-center">
-                <video className="hidden lg:block ml-12  w-[550px]" autoPlay loop muted>
-                    <source src={video} type="video/mp4" />
-                </video>
-
                 <div className="rounded-2xl border-gradient w-[500px] p-1">
                     <h1 className="text-4xl text-black text-center font-extrabold my-5">SIGN IN</h1>
 
                     <p className="text-sm font-bold text-center my-2">New here ? <Link to="/signup"><span className="header text-base">Create a New Account</span></Link></p>
+
                     {/* continue with google */}
                     <div className="flex items-center justify-center gap-4 font-semibold text-center">
                         <p className="text-sm font-bold">Sign in with</p>
-                        <button onClick={handleGoogleSignIn} className="flex items-center gap-1 border-2 py-2 px-3 rounded-lg border-cyan-400 hover:text-blue-500 cursor-pointer"><img className="w-[30px]" src={google} />Google</button>
+                        <button onClick={handleGoogleSignIn} className="flex items-center gap-1 border-2 py-2 px-3 rounded-lg border-cyan-400 hover:text-blue-500 cursor-pointer"><FcGoogle className="text-2xl"></FcGoogle>Google</button>
                     </div>
                     <div className="flex items-center mt-3 justify-center">
                         <img className="w-1/4" src={line} />
@@ -102,8 +99,12 @@ const SignIn = () => {
                             <button type="submit" className="w-full py-2 rounded-xl mb-8 text-white bg-gradient-to-r from-cyan-400 to-blue-400 shadow-lg shadow-blue-500/50 hover:bg-gradient-to-r hover:from-cyan-500 hover:to-blue-500">Sign In</button>
                         </div>
                     </form>
-                </div >
-            </div >
+                </div>
+
+                <video className="hidden lg:block ml-12  w-[550px]" autoPlay loop muted>
+                    <source src={video} type="video/mp4" />
+                </video>
+            </div>
         </div>
     );
 };

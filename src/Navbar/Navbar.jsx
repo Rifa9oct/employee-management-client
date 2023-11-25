@@ -15,10 +15,10 @@ const Navbar = () => {
 
     const navLinks = <>
         <li> <NavLink to="/" className={({ isActive, isPending }) =>
-            isActive ? "active bg-purple-500 px-8 text-black py-1 rounded-full" : isPending ? "pending" : ""}>Home</NavLink>
+            isActive ? "active bg-purple-500 px-3 lg:px-8 text-black py-1 rounded-full" : isPending ? "pending" : ""}>Home</NavLink>
         </li>
         <li> <NavLink to="/contact" className={({ isActive, isPending }) =>
-            isActive ? "active bg-purple-500 px-8 text-black py-1 rounded-full" : isPending ? "pending" : ""}>Contact Us</NavLink>
+            isActive ? "active bg-purple-500 px-3 lg:px-8 text-black py-1 rounded-full" : isPending ? "pending" : ""}>Contact Us</NavLink>
         </li>
     </>
 
@@ -43,7 +43,7 @@ const Navbar = () => {
                     {
                         menuDrop ?
                             <>
-                                <ul tabIndex={0} className="transition rounded-lg absolute flex top-[30px] left-0 flex-col gap-4 mt-3 p-6 py-6 shadow-lg bg-purple-100 w-48">
+                                <ul tabIndex={0} className="transition rounded-lg absolute flex top-[30px] left-0 flex-col gap-4 mt-3 p-6 py-6 shadow-lg bg-purple-100 bg-opacity-40 w-[200px]">
                                     {navLinks}
                                 </ul>
                             </> : ""
@@ -57,7 +57,7 @@ const Navbar = () => {
             </div>
 
             <div>
-                <ul className="hidden text-white tracking-wider text-xl font-bold lg:flex items-center gap-8">
+                <ul className="hidden text-white text-lg font-bold lg:flex items-center gap-8">
                     {navLinks}
                 </ul>
             </div>
@@ -72,7 +72,7 @@ const Navbar = () => {
                                         <img className="w-[50px] h-[50px] mx-3 rounded-full border-[2px]" src={user.photoURL} /> :
                                         <img className="w-[50px] h-[50px] mx-3 rounded-full border-blue-900" src="https://i.ibb.co/VC1vhmp/user.png" />
                                 }
-                                <a onClick={handleLogOut} className="flex items-center md:hidden btn text-bsm bg-gradient-to-r from-blue-500 to-cyan-500 text-black hover:scale-110 transition"> <LuLogOut className="text-xl" />Sign Out</a>
+                                <a onClick={handleLogOut} className="flex items-center md:hidden btn text-bsm bg-gradient-to-r from-blue-500 to-cyan-500 text-white hover:scale-110 transition px-5 py-2 rounded-full"> <LuLogOut className="text-xl" />Sign Out</a>
                             </div>
 
                             {/* dropdown signout */}
@@ -99,12 +99,10 @@ const Navbar = () => {
                                                     <a className="font-extrabold hover:text-lime-400">Sign Out</a>
                                                 </div>
                                             </div>
-
                                         </div>
                                         :
                                         <div>
                                             <p onClick={() => setDropdown(!dropdown)}><IoIosArrowDown className="text-2xl cursor-pointer text-white " /></p>
-
                                         </div>
                                 }
                             </div>
@@ -112,10 +110,10 @@ const Navbar = () => {
                         :
                         <div>
                             <Link to="/signin">
-                                <button className="py-2 rounded-full px-8 border-0 text-base bg-gradient-to-r outline tracking-wider outline-purple-500 text-purple-500 hover:bg-purple-500 hover:text-white font-bold hover:scale-105 transition">Sign In</button>
+                                <button className="py-2 rounded-full px-8 border-0 text-base bg-gradient-to-r outline outline-purple-500 text-purple-500 hover:bg-purple-500 hover:text-white font-bold hover:scale-105 transition">Sign In</button>
                             </Link>
                             <Link to="/signup">
-                                <button className="ml-5 py-2 rounded-full px-8 border-0 text-base outline outline-purple-500 tracking-wider hover:bg-purple-500 hover:text-white text-purple-500 font-bold hover:scale-105 transition">Sign Up</button>
+                                <button className="ml-5 py-2 rounded-full px-8 border-0 text-base outline outline-purple-500 hover:bg-purple-500 hover:text-white text-purple-500 font-bold hover:scale-105 transition">Sign Up</button>
                             </Link>
                         </div>
                 }
