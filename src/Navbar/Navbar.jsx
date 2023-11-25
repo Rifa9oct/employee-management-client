@@ -6,7 +6,7 @@ import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
 import { LuLogOut } from "react-icons/lu";
 import { AuthContext } from "../AuthProvider/AuthContext";
 import "../Navbar/navbar.css";
-import list from "../assets/list.png"
+import list from "../assets/list.png";
 
 const Navbar = () => {
     const { user, logOut } = useContext(AuthContext);
@@ -78,7 +78,7 @@ const Navbar = () => {
                                     dropdown ?
                                         <div>
                                             <p onClick={() => setDropdown(!dropdown)}><IoIosArrowUp className="text-2xl cursor-pointer text-black" /></p>
-                                            <div className="absolute z-10 top-[80px] right-[40px] w-[300px] rounded-lg shadow-lg transit bg-black bg-opacity-60">
+                                            <div className="absolute z-10 top-[80px] right-[130px] w-[300px] rounded-lg shadow-lg transit bg-purple-100 border">
                                                 <div className="flex items-center gap-2 justify-center pt-10">
                                                     {
                                                         user.photoURL ?
@@ -91,7 +91,7 @@ const Navbar = () => {
                                                     </div>
                                                 </div>
                                                 <div className="divider pt-5"></div>
-                                                <div onClick={handleLogOut} className="flex items-center gap-2 ml-12 pt-4 pb-10 cursor-pointer text-white ">
+                                                <div onClick={handleLogOut} className="flex items-center gap-2 ml-[70px] pt-4 pb-10 cursor-pointer ">
                                                     <LuLogOut className="text-2xl" />
                                                     <a className="font-extrabold">Sign Out</a>
                                                 </div>
@@ -100,7 +100,7 @@ const Navbar = () => {
                                         </div>
                                         :
                                         <div>
-                                            <p onClick={() => setDropdown(!dropdown)}><IoIosArrowDown className="text-2xl cursor-pointer text-white " /></p>
+                                            <p onClick={() => setDropdown(!dropdown)}><IoIosArrowDown className="text-2xl cursor-pointer " /></p>
 
                                         </div>
                                 }
