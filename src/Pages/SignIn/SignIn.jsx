@@ -6,6 +6,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import logo from "../../assets/logo.png";
 import google from "../../assets/google.png";
+import line from "../../assets/line.png"
 
 const SignIn = () => {
     const [showPassword, setShowPassword] = useState(false);
@@ -36,6 +37,7 @@ const SignIn = () => {
         signInWithGoogle()
             .then(result => {
                 console.log(result.user)
+                navigate(from, { replace: true })
             })
             .catch(error => {
                 console.log(error)
@@ -61,6 +63,11 @@ const SignIn = () => {
                     <div className="flex items-center justify-center gap-4 font-semibold text-center">
                         <p className="text-sm font-bold">Sign in with</p>
                         <button onClick={handleGoogleSignIn} className="flex items-center gap-1 border-2 py-2 px-3 rounded-lg border-cyan-400 hover:text-blue-500 cursor-pointer"><img className="w-[30px]" src={google} />Google</button>
+                    </div>
+                    <div className="flex items-center mt-3 justify-center">
+                        <img className="w-1/4" src={line} />
+                        <p className="font-medium mx-3">OR</p>
+                        <img className="w-1/4" src={line} />
                     </div>
 
                     <form onSubmit={handleSignin} className="px-10 pt-5">

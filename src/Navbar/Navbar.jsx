@@ -15,7 +15,10 @@ const Navbar = () => {
 
     const navLinks = <>
         <li> <NavLink to="/" className={({ isActive, isPending }) =>
-            isActive ? "active  text-red-500" : isPending ? "pending" : ""}>Home</NavLink>
+            isActive ? "active bg-purple-500 px-8 text-black py-1 rounded-full" : isPending ? "pending" : ""}>Home</NavLink>
+        </li>
+        <li> <NavLink to="/contact" className={({ isActive, isPending }) =>
+            isActive ? "active bg-purple-500 px-8 text-black py-1 rounded-full" : isPending ? "pending" : ""}>Contact Us</NavLink>
         </li>
     </>
 
@@ -33,7 +36,7 @@ const Navbar = () => {
     }
 
     return (
-        <div className="md:bg-purple-100 flex flex-col md:flex-row justify-between items-center  px-5 lg:px-32">
+        <div className="fixed z-10 md:bg-purple-100 md:bg-opacity-40 flex flex-col md:flex-row justify-between items-center px-5 lg:px-10 w-full">
             <div className="flex flex-row items-center">
                 <div className="relative mr-3 mt-3 block lg:hidden">
                     <div onClick={()=> setMenuDrop(!menuDrop)}><img src={list} alt="list icon" /></div>
@@ -49,12 +52,12 @@ const Navbar = () => {
                 </div>
                 <div className="flex items-center gap-3">
                     <img className="w-[50px] mt-5" src={logo} />
-                    <h1 className="header text-3xl font-bold text-black">Employee Management</h1>
+                    <h1 className="text-3xl font-bold text-black">Employee Management</h1>
                 </div>
             </div>
 
             <div>
-                <ul className="hidden text-purple-600 tracking-wider text-xl font-bold lg:flex items-center gap-8">
+                <ul className="hidden text-white tracking-wider text-xl font-bold lg:flex items-center gap-8">
                     {navLinks}
                 </ul>
             </div>
@@ -77,30 +80,30 @@ const Navbar = () => {
                                 {
                                     dropdown ?
                                         <div>
-                                            <p onClick={() => setDropdown(!dropdown)}><IoIosArrowUp className="text-2xl cursor-pointer text-black" /></p>
-                                            <div className="absolute z-10 top-[80px] right-[130px] w-[300px] rounded-lg shadow-lg transit bg-purple-100 border">
+                                            <p onClick={() => setDropdown(!dropdown)}><IoIosArrowUp className="text-2xl cursor-pointer text-white" /></p>
+                                            <div className="absolute z-10 top-[80px] right-[40px] w-[300px] rounded-lg shadow-lg transit bg-black bg-opacity-50">
                                                 <div className="flex items-center gap-2 justify-center pt-10">
                                                     {
                                                         user.photoURL ?
                                                             <img className="w-[45px] h-[45px] mx-3 rounded-full " src={user.photoURL} /> :
                                                             <img className="w-[45px] h-[45px] mx-3 rounded-full border-blue-900" src="https://i.ibb.co/VC1vhmp/user.png" />
                                                     }
-                                                    <div className="text-black">
+                                                    <div className="text-white">
                                                         <p className="font-extrabold">{user.displayName}</p>
                                                         <p className="text-sm">{user.email}</p>
                                                     </div>
                                                 </div>
                                                 <div className="divider pt-5"></div>
-                                                <div onClick={handleLogOut} className="flex items-center gap-2 ml-[70px] pt-4 pb-10 cursor-pointer ">
+                                                <div onClick={handleLogOut} className="flex items-center gap-2 text-white ml-[70px] pt-4 pb-10 cursor-pointer ">
                                                     <LuLogOut className="text-2xl" />
-                                                    <a className="font-extrabold">Sign Out</a>
+                                                    <a className="font-extrabold hover:text-lime-400">Sign Out</a>
                                                 </div>
                                             </div>
 
                                         </div>
                                         :
                                         <div>
-                                            <p onClick={() => setDropdown(!dropdown)}><IoIosArrowDown className="text-2xl cursor-pointer " /></p>
+                                            <p onClick={() => setDropdown(!dropdown)}><IoIosArrowDown className="text-2xl cursor-pointer text-white " /></p>
 
                                         </div>
                                 }
