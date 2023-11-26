@@ -3,46 +3,68 @@ import video from "../../assets/videos/signup.mp4"
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { FcGoogle } from "react-icons/fc";
 import { useForm } from "react-hook-form";
 import { MdError } from "react-icons/md";
 import Swal from "sweetalert2";
 import { updateProfile } from "firebase/auth";
 import { AuthContext } from "../../AuthProvider/AuthContext";
-import line from "../../assets/line.png";
 import logo from "../../assets/logo.png";
+import useAxiosPublic from "../../hooks/useAxiosPublic";
+
+//img upload
+const img_hosting_key = import.meta.env.VITE_IMAGE_HOSTING_KEY;
+const img_hosting_api = `https://api.imgbb.com/1/upload?key=${img_hosting_key}`;
 
 const Signup = () => {
-    const { signInWithGoogle, createUser } = useContext(AuthContext);
+    const { createUser } = useContext(AuthContext);
     const [showPassword, setShowPassword] = useState(false);
+    const axiosPublic = useAxiosPublic();
     const { register, handleSubmit, formState: { errors }, reset } = useForm();
     const navigate = useNavigate();
 
-    const onSubmit = data => {
+    const onSubmit = (data) => {
+        // console.log(data)
+
         createUser(data.email, data.password)
-            .then(res => {
+            .then(async (result) => {
                 // console.log(result.user);
+                
+                // image upload to imgbb and tthen get an url
+                const imageFile = {
+                    image: data.image[0]
+                }
+                const res = await axiosPublic.post(img_hosting_api, imageFile, {
+                    headers: {
+                        'content-type': 'multipart/form-data'
+                    }
+                });
+
+                if (res.data.success) {
+                    const userInfo = {
+                        name: data.name,
+                        email: data.email,
+                        account_no: parseFloat(data.account_no),
+                        designation: data.designation,
+                        role: data.role,
+                        salary: parseFloat(data.salary),
+                        image: res.data.data.display_url,
+                        verified: false
+                    }
+                    const usersCreate = await axiosPublic.post("/users", userInfo);
+
+                    if (usersCreate.data.insertedId) {
+                        Swal.fire("Great!", "Sign up successfully", "success");
+                        updateProfile(result.user, {
+                            displayName: userInfo.name,
+                            photoURL: userInfo.image
+                        })
+                        navigate("/");
+                    }
+                }
                 reset();
-                Swal.fire("Great!", "Sign up successfully", "success");
-                updateProfile(res.user, {
-                    displayName: data.name,
-                    photoURL: data.photoUrl
-                })
-                navigate("/");
             })
             .catch(error => {
                 Swal.fire("Opps!", error.message, "error");
-            })
-    }
-
-    const handleGoogleSignIn = () => {
-        signInWithGoogle()
-            .then(result => {
-                console.log(result);
-                navigate("/")
-            })
-            .catch(error => {
-                console.log(error)
             })
     }
 
@@ -61,18 +83,6 @@ const Signup = () => {
                     <h1 className="text-5xl text-black text-center font-extrabold my-5">SIGN UP</h1>
 
                     <p className="text-sm font-bold text-center my-2">Already Have an Account ? <Link to="/signin"><span className="header text-base">Please Sign In</span></Link></p>
-
-                    {/* continue with google */}
-                    <div className="flex items-center justify-center gap-4 font-semibold text-center">
-                        <p className="text-sm font-bold">Sign up with</p>
-                        <button onClick={handleGoogleSignIn} className="flex items-center gap-1 border-2 py-2 px-3 rounded-lg border-cyan-400 hover:text-blue-500 cursor-pointer"><FcGoogle className="text-2xl"></FcGoogle>Google</button>
-                    </div>
-
-                    <div className="flex items-center mt-3 justify-center">
-                        <img className="w-1/4" src={line} />
-                        <p className="font-medium mx-3">OR</p>
-                        <img className="w-1/4" src={line} />
-                    </div>
 
                     {/* form */}
                     <form onSubmit={handleSubmit(onSubmit)} className="card-body px-10 mt-8">
@@ -126,12 +136,12 @@ const Signup = () => {
                                 </label>
                                 <div>
                                     <input
-                                        type="text"
-                                        {...register("account", { required: true, maxLength: 16, pattern: /^[0-9]{16}$/ })}
-                                        name="account" placeholder="account no" className="border-2 px-3 py-2 w-full border-cyan-400 rounded-lg my-2 focus:outline-none" />
-                                    {errors.account?.type === "required" && <p className="text-sm text-red-500"><MdError className="text-lg inline" /> Account No is required.</p>}
-                                    {errors.account?.type === "maxLength" && <p className="text-sm text-red-500"><MdError className="text-lg inline" /> Account No max length should be 16 digits.</p>}
-                                    {errors.account?.type === "pattern" && <p className="text-sm text-red-500"><MdError className="text-lg inline" /> Account No must be only number.</p>}
+                                        type="number"
+                                        {...register("account_no", { required: true, maxLength: 16, pattern: /^[0-9]{16}$/ })}
+                                        name="account_no" placeholder="account no" className="border-2 px-3 py-2 w-full border-cyan-400 rounded-lg my-2 focus:outline-none" />
+                                    {errors.account_no?.type === "required" && <p className="text-sm text-red-500"><MdError className="text-lg inline" /> Account No is required.</p>}
+                                    {errors.account_no?.type === "maxLength" && <p className="text-sm text-red-500"><MdError className="text-lg inline" /> Account No max length should be 16 digits.</p>}
+                                    {errors.account_no?.type === "pattern" && <p className="text-sm text-red-500"><MdError className="text-lg inline" /> Account No must be only number.</p>}
                                 </div>
                             </div>
 
@@ -140,7 +150,7 @@ const Signup = () => {
                                     <span>Salary</span>
                                 </label>
                                 <div>
-                                    <input type="text" {...register("salary", { required: true })}
+                                    <input type="number" {...register("salary", { required: true })}
                                         name="salary" placeholder="total salary" className="border-2 px-3 py-2 w-full border-cyan-400 rounded-lg my-2 focus:outline-none " />
                                     {errors.salary && <span className="text-sm text-red-500"><MdError className="text-lg inline" /> Salary field is required.</span>}
                                 </div>
@@ -148,24 +158,29 @@ const Signup = () => {
 
                             <div>
                                 <label>Role<br /></label>
-                                <select {...register("role")} className="border-2 px-3 py-2 w-full border-cyan-400 rounded-lg my-2 focus:outline-none" >
+                                <select {...register("role", { required: true })} className="border-2 px-3 py-2 w-full border-cyan-400 rounded-lg my-2 focus:outline-none" >
+                                    <option value="">Select Role</option>
                                     <option value="Employee">Employee</option>
                                     <option value="HR">HR</option>
                                     <option value="Admin" disabled>Admin</option>
                                 </select>
+                                {errors.role && <span className="text-sm text-red-500"><MdError className="text-lg inline" /> This field is required.</span>}
                             </div>
 
                             <div>
                                 <label>Designation <br /></label>
-                                <select {...register("designation")} className="border-2 px-3 py-2 w-full border-cyan-400 rounded-lg my-2 focus:outline-none" >
+                                <select {...register("designation", { required: true })} className="border-2 px-3 py-2 w-full border-cyan-400 rounded-lg my-2 focus:outline-none">
+                                    <option value="">Select Designation</option>
                                     <option value="Development Coordinator">Development Coordinator</option>
-                                    <option value="Team Lead" selected>Team Lead</option>
+                                    <option value="Team Lead">Team Lead</option>
                                     <option value="Security Administrator">Security Administrator</option>
                                     <option value="Regular Employee">Regular Employee</option>
                                     <option value="Project Manager">Project Manager</option>
                                     <option value="Specialist">Specialist</option>
                                     <option value="Other">Other</option>
                                 </select>
+                                {errors.designation && <span className="text-sm text-red-500"><MdError className="text-lg inline" /> This field is required.</span>}
+
                             </div>
 
                             <div>
@@ -173,7 +188,8 @@ const Signup = () => {
                                     <span>Photo URL</span>
                                 </label>
                                 <div>
-                                    <input type="file" {...register("photo url")} name="photo url" placeholder="your photo url" className="border-2 px-3 py-2 w-full border-cyan-400 rounded-lg my-2 focus:outline-none " />
+                                    <input type="file" {...register("image", { required: true })} name="image" placeholder="your photo url" className="border-2 px-3 py-2 w-full border-cyan-400 rounded-lg my-2 focus:outline-none " />
+                                    {errors.image && <span className="text-sm text-red-500"><MdError className="text-lg inline" /> Image field is required.</span>}
                                 </div>
                             </div>
                         </div>

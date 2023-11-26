@@ -5,12 +5,10 @@ import { AuthContext } from "../../AuthProvider/AuthContext"
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import logo from "../../assets/logo.png";
-import line from "../../assets/line.png"
-import { FcGoogle } from "react-icons/fc";
 
 const SignIn = () => {
     const [showPassword, setShowPassword] = useState(false);
-    const { signinUser, setLogin, signInWithGoogle } = useContext(AuthContext);
+    const { signinUser, setLogin } = useContext(AuthContext);
     const location = useLocation();
     const navigate = useNavigate();
 
@@ -33,16 +31,6 @@ const SignIn = () => {
             })
     }
 
-    const handleGoogleSignIn = () => {
-        signInWithGoogle()
-            .then(result => {
-                console.log(result.user)
-                navigate(from, { replace: true })
-            })
-            .catch(error => {
-                console.log(error)
-            })
-    }
 
     return (
         <div>
@@ -55,17 +43,6 @@ const SignIn = () => {
                     <h1 className="text-4xl text-black text-center font-extrabold my-5">SIGN IN</h1>
 
                     <p className="text-sm font-bold text-center my-2">New here ? <Link to="/signup"><span className="header text-base">Create a New Account</span></Link></p>
-
-                    {/* continue with google */}
-                    <div className="flex items-center justify-center gap-4 font-semibold text-center">
-                        <p className="text-sm font-bold">Sign in with</p>
-                        <button onClick={handleGoogleSignIn} className="flex items-center gap-1 border-2 py-2 px-3 rounded-lg border-cyan-400 hover:text-blue-500 cursor-pointer"><FcGoogle className="text-2xl"></FcGoogle>Google</button>
-                    </div>
-                    <div className="flex items-center mt-3 justify-center">
-                        <img className="w-1/4" src={line} />
-                        <p className="font-medium mx-3">OR</p>
-                        <img className="w-1/4" src={line} />
-                    </div>
 
                     <form onSubmit={handleSignin} className="px-10 pt-5">
                         <div>
