@@ -22,7 +22,7 @@ const Bannar = () => {
                     if (mouseOver) return
                     timeout = setTimeout(() => {
                         slider.next()
-                    }, 1500)
+                    }, 2000)
                 }
                 slider.on("created", () => {
                     slider.container.addEventListener("mouseover", () => {
