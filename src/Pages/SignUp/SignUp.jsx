@@ -28,7 +28,7 @@ const Signup = () => {
         createUser(data.email, data.password)
             .then(async (result) => {
                 // console.log(result.user);
-                
+
                 // image upload to imgbb and tthen get an url
                 const imageFile = {
                     image: data.image[0]
@@ -160,9 +160,9 @@ const Signup = () => {
                                 <label>Role<br /></label>
                                 <select {...register("role", { required: true })} className="border-2 px-3 py-2 w-full border-cyan-400 rounded-lg my-2 focus:outline-none" >
                                     <option value="">Select Role</option>
-                                    <option value="Employee">Employee</option>
-                                    <option value="HR">HR</option>
-                                    <option value="Admin" disabled>Admin</option>
+                                    <option value="Employee">employee</option>
+                                    <option value="HR">hr</option>
+                                    <option value="Admin" disabled>admin</option>
                                 </select>
                                 {errors.role && <span className="text-sm text-red-500"><MdError className="text-lg inline" /> This field is required.</span>}
                             </div>
@@ -172,10 +172,11 @@ const Signup = () => {
                                 <select {...register("designation", { required: true })} className="border-2 px-3 py-2 w-full border-cyan-400 rounded-lg my-2 focus:outline-none">
                                     <option value="">Select Designation</option>
                                     <option value="Development Coordinator">Development Coordinator</option>
-                                    <option value="Team Lead">Team Lead</option>
-                                    <option value="Security Administrator">Security Administrator</option>
+                                    <option value="Human Resources Administrator">Human Resources Administrator</option>
+                                    <option value="Human Resources Manager">Human Resources Manager</option>
                                     <option value="Regular Employee">Regular Employee</option>
-                                    <option value="Project Manager">Project Manager</option>
+                                    <option value="Human Resources Director">Human Resources Director</option>
+                                    <option value="President">President</option>
                                     <option value="Specialist">Specialist</option>
                                     <option value="Other">Other</option>
                                 </select>

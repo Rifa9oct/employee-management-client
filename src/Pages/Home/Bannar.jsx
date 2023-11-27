@@ -3,7 +3,8 @@ import "keen-slider/keen-slider.min.css"
 import img1 from "../../assets/img1.png"
 import img2 from "../../assets/img2.png"
 import img3 from "../../assets/img3.png"
-import img4 from "../../assets/img5.png"
+import img4 from "../../assets/img4.png"
+import img5 from "../../assets/img5.png"
 
 const Bannar = () => {
     const [sliderRef] = useKeenSlider(
@@ -54,8 +55,11 @@ const Bannar = () => {
                 <div className="keen-slider__slide number-slide3">
                     <img className=" w-full" src={img3} />
                 </div>
-                <div className="keen-slider__slide number-slide4">
+                <div className="keen-slider__slide number-slide3">
                     <img className=" w-full" src={img4} />
+                </div>
+                <div className="keen-slider__slide number-slide4">
+                    <img className=" w-full" src={img5} />
                 </div>
             </div>
         </div>

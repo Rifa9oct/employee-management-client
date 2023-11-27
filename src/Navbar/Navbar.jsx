@@ -15,10 +15,13 @@ const Navbar = () => {
 
     const navLinks = <>
         <li> <NavLink to="/" className={({ isActive, isPending }) =>
-            isActive ? "active bg-purple-500 px-3 lg:px-8 text-black py-1 rounded-full" : isPending ? "pending" : ""}>Home</NavLink>
+            isActive ? "active bg-purple-500 px-3 lg:px-5 text-white py-2 rounded-full" : isPending ? "pending" : ""}>Home</NavLink>
+        </li>
+        <li> <NavLink to="/dashboard" className={({ isActive, isPending }) =>
+            isActive ? "active bg-purple-500 px-3 lg:px-5 text-white py-2 rounded-full" : isPending ? "pending" : ""}>Dashboard</NavLink>
         </li>
         <li> <NavLink to="/contact" className={({ isActive, isPending }) =>
-            isActive ? "active bg-purple-500 px-3 lg:px-8 text-black py-1 rounded-full" : isPending ? "pending" : ""}>Contact Us</NavLink>
+            isActive ? "active bg-purple-500 px-3 lg:px-5 text-white py-2 rounded-full" : isPending ? "pending" : ""}>Contact Us</NavLink>
         </li>
     </>
 
@@ -57,7 +60,7 @@ const Navbar = () => {
             </div>
 
             <div>
-                <ul className="hidden text-white text-lg font-bold lg:flex items-center gap-8">
+                <ul className="hidden text-black text-lg font-bold lg:flex items-center gap-8">
                     {navLinks}
                 </ul>
             </div>
@@ -80,7 +83,7 @@ const Navbar = () => {
                                 {
                                     dropdown ?
                                         <div>
-                                            <p onClick={() => setDropdown(!dropdown)}><IoIosArrowUp className="text-2xl cursor-pointer text-white" /></p>
+                                            <p onClick={() => setDropdown(!dropdown)}><IoIosArrowUp className="text-2xl cursor-pointer text-black" /></p>
                                             <div className="absolute z-10 top-[80px] right-[40px] w-[300px] rounded-lg shadow-lg transit bg-black bg-opacity-50">
                                                 <div className="flex items-center gap-2 justify-center pt-10">
                                                     {
@@ -102,7 +105,7 @@ const Navbar = () => {
                                         </div>
                                         :
                                         <div>
-                                            <p onClick={() => setDropdown(!dropdown)}><IoIosArrowDown className="text-2xl cursor-pointer text-white " /></p>
+                                            <p onClick={() => setDropdown(!dropdown)}><IoIosArrowDown className="text-2xl cursor-pointer text-black " /></p>
                                         </div>
                                 }
                             </div>

@@ -3,7 +3,7 @@
 const ContuctUs = () => {
     return (
         <div>
-            <h1>contact</h1>
+            <h1 className="text-5xl pt-32 text-center">contact</h1>
         </div>
     );
 };
