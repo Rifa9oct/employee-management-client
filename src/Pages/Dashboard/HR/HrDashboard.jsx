@@ -5,6 +5,8 @@ import invalidImg from "../../../assets/invalid.png"
 import Swal from "sweetalert2";
 import { FaCcAmazonPay } from "react-icons/fa6";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
+import SectionTitle from "../../../Shared/SectionTitle/SectionTitle";
+import SelectMonthYear from "../../../Shared/SelectMonthYear/SelectMonthYear";
 
 
 const HrDashboard = () => {
@@ -49,7 +51,6 @@ const HrDashboard = () => {
         });
     }
 
-
     console.log(hrData.length, adminData.length);
 
     // State to manage current page
@@ -67,8 +68,11 @@ const HrDashboard = () => {
 
     return (
         <div>
-            <h1 className="text-center text-4xl pt-32">All EMPLOYEE LIST</h1>
-            <div className="overflow-x-auto mb-20 mx-20 absolute top-[200px] left-[85px]">
+            <SectionTitle
+                subTitle="Hr Only"
+                heading="All EMPLOYEE LIST"
+            ></SectionTitle>
+            <div className="overflow-x-auto mb-20 mx-20">
                 <table className="table border-4 border-cyan-300">
                     <thead className="bg-cyan-100 text-black">
                         <tr className="text-xl border-4 border-cyan-300 text-center">
@@ -102,7 +106,28 @@ const HrDashboard = () => {
                                     <button className="bg-red-400 p-2 rounded-lg hover:bg-red-600 text-xs font-bold text-white">Details</button>
                                 </td>
                                 <td>
-                                    <button className="text-xl text-blue-500 hover:text-blue-700"><FaCcAmazonPay className="text-4xl" /></button>
+                                    <button onClick={() => document.getElementById(item._id).showModal()} className="text-xl text-blue-500 hover:text-blue-700"><FaCcAmazonPay className="text-4xl"
+                                    /></button>
+
+                                    {/* modal */}
+                                    <dialog id={item._id} className="modal">
+                                        <div className="modal-box">
+                                            <form method="dialog">
+                                                {/* if there is a button in form, it will close the modal */}
+                                                <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
+                                            </form>
+                                            <div>
+                                                <h1 className="font-bold text-2xl my-2 text-cyan-500 text-center">{item.name}</h1>
+                                                <h3 className="text-center">Salary : $ {item.salary}</h3>
+                                                <SelectMonthYear></SelectMonthYear>
+                                                <div className="flex justify-center">
+                                                    <button
+                                                        disabled={!item.verified}
+                                                        className="btn btn-sm px-7 mb-8 text-white bg-gradient-to-r to-cyan-400 from-blue-400 shadow-lg border-0 shadow-blue-500/50 hover:bg-gradient-to-r hover:to-cyan-500 hover:from-blue-500">Pay</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </dialog>
                                 </td>
                             </tr>
                             )
