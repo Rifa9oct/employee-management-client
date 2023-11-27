@@ -5,6 +5,7 @@ import SignIn from "../Pages/SignIn/SignIn";
 import SignUp from "../Pages/SignUp/SignUp";
 import ContuctUs from "../Pages/Home/ContuctUs"
 import Dashboard from "../Pages/Dashboard/Dashboard";
+import EmployeeDetail from "../Pages/Dashboard/HR/EmployeeDetail";
 
 
 const router = createBrowserRouter([
@@ -19,6 +20,11 @@ const router = createBrowserRouter([
             {
                 path: "/dashboard",
                 element: <Dashboard></Dashboard>
+            },
+            {
+                path: "/employeeDetails/:id",
+                element: <EmployeeDetail></EmployeeDetail>,
+                loader: ({params})=> fetch(`http://localhost:5000/users/${params.id}`)
             },
             {
                 path: "/contact",

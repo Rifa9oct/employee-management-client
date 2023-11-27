@@ -7,6 +7,7 @@ import { FaCcAmazonPay } from "react-icons/fa6";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import SectionTitle from "../../../Shared/SectionTitle/SectionTitle";
 import SelectMonthYear from "../../../Shared/SelectMonthYear/SelectMonthYear";
+import { Link } from "react-router-dom";
 
 
 const HrDashboard = () => {
@@ -20,7 +21,6 @@ const HrDashboard = () => {
     })
 
     const hrData = users.filter(user => user.role === "employee");
-    const adminData = users.filter(user => (user.verified === true || user.role === "hr"));
 
     const handleVerified = (user) => {
         Swal.fire({
@@ -40,7 +40,7 @@ const HrDashboard = () => {
                             Swal.fire({
                                 position: "top-center",
                                 icon: "success",
-                                title: `${user.name} is an verified Now`,
+                                title: `${user.name} is a verified Now`,
                                 showCancelButton: false,
                                 timer: 1500
                             });
@@ -51,8 +51,6 @@ const HrDashboard = () => {
         });
     }
 
-    console.log(hrData.length, adminData.length);
-
     // State to manage current page
     const [currentPage, setCurrentPage] = useState(1);
     const usersPerPage = 5;
@@ -60,18 +58,21 @@ const HrDashboard = () => {
     // Calculate the index range for the current page
     const lastIndex = currentPage * usersPerPage;
     const firstIndex = lastIndex - usersPerPage;
-    const currentUsers = users.slice(firstIndex, lastIndex);
-    const totalPages = Math.ceil(users.length / usersPerPage);
+    const currentUsers = hrData.slice(firstIndex, lastIndex);
+    const totalPages = Math.ceil(hrData.length / usersPerPage);
     const handlePageChange = (newPage) => {
         setCurrentPage(newPage);
     };
 
     return (
         <div>
-            <SectionTitle
-                subTitle="Hr Only"
-                heading="All EMPLOYEE LIST"
-            ></SectionTitle>
+            <div className="pt-32 mb-8 ">
+                <SectionTitle
+                    subTitle="Hr Only"
+                    heading="EMPLOYEE LIST"
+                ></SectionTitle>
+            </div>
+
             <div className="overflow-x-auto mb-20 mx-20">
                 <table className="table border-4 border-cyan-300">
                     <thead className="bg-cyan-100 text-black">
@@ -89,7 +90,7 @@ const HrDashboard = () => {
                     <tbody>
                         {
                             currentUsers?.map((item, index) => <tr key={item._id} className="border-4 border-cyan-300">
-                                <td className="border-4 border-cyan-300">{firstIndex + index + 1}</td>
+                                <td className="border-4 border-cyan-300 text-center">{firstIndex + index + 1}</td>
                                 <td className="border-4 border-cyan-300">{item.name}</td>
                                 <td className="border-4 border-cyan-300">{item.email}</td>
                                 <td className="border-4 border-cyan-300">
@@ -103,7 +104,7 @@ const HrDashboard = () => {
                                 <td className="border-4 border-cyan-300">{item.account_no}</td>
                                 <td className="border-4 border-cyan-300">$ {item.salary}</td>
                                 <td className="border-4 border-cyan-300">
-                                    <button className="bg-red-400 p-2 rounded-lg hover:bg-red-600 text-xs font-bold text-white">Details</button>
+                                    <Link to={`/employeeDetails/${item?._id}`} className="bg-red-400 p-2 rounded-lg hover:bg-red-600 text-xs font-bold text-white">Details</Link>
                                 </td>
                                 <td>
                                     <button onClick={() => document.getElementById(item._id).showModal()} className="text-xl text-blue-500 hover:text-blue-700"><FaCcAmazonPay className="text-4xl"
