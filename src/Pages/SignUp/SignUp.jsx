@@ -48,7 +48,8 @@ const Signup = () => {
                         role: data.role,
                         salary: parseFloat(data.salary),
                         image: res.data.data.display_url,
-                        verified: false
+                        verified: false,
+                        fired: false
                     }
                     const usersCreate = await axiosPublic.post("/users", userInfo);
 
@@ -160,9 +161,9 @@ const Signup = () => {
                                 <label>Role<br /></label>
                                 <select {...register("role", { required: true })} className="border-2 px-3 py-2 w-full border-cyan-400 rounded-lg my-2 focus:outline-none" >
                                     <option value="">Select Role</option>
-                                    <option value="Employee">employee</option>
-                                    <option value="HR">hr</option>
-                                    <option value="Admin" disabled>admin</option>
+                                    <option value="employee">Employee</option>
+                                    <option value="hr">Hr</option>
+                                    <option value="admin" disabled>Admin</option>
                                 </select>
                                 {errors.role && <span className="text-sm text-red-500"><MdError className="text-lg inline" /> This field is required.</span>}
                             </div>

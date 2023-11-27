@@ -15,7 +15,7 @@ const HrDashboard = () => {
     const { data: users = [], refetch } = useQuery({
         queryKey: ['users'],
         queryFn: async () => {
-            const res = await axiosSecure.get('/users');
+            const res = await axiosSecure.get('/users', { withCredentials: true });
             return res.data;
         }
     })
@@ -66,7 +66,7 @@ const HrDashboard = () => {
 
     return (
         <div>
-            <div className="pt-32 mb-8 ">
+            <div className="pt-32 mb-8">
                 <SectionTitle
                     subTitle="Hr Only"
                     heading="EMPLOYEE LIST"

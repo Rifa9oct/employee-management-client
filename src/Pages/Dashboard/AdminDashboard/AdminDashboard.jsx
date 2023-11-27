@@ -13,7 +13,7 @@ const AdminDashboard = () => {
     const { data: users = [], refetch } = useQuery({
         queryKey: ['users'],
         queryFn: async () => {
-            const res = await axiosSecure.get('/users');
+            const res = await axiosSecure.get('/users', { withCredentials: true });
             return res.data;
         }
     })
@@ -69,7 +69,7 @@ const AdminDashboard = () => {
     };
 
     return (
-        <div className="mb-20">
+        <div className="mb-20 pt-32">
             <SectionTitle
                 heading="All EMPLOYEE LIST"
                 subTitle="Admin Only"
