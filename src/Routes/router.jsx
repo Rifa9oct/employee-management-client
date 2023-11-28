@@ -1,12 +1,12 @@
 import { createBrowserRouter } from "react-router-dom";
 import Root from "../Layout/Root";
-import Home from "../Pages/Home/Home";
 import SignIn from "../Pages/SignIn/SignIn";
 import SignUp from "../Pages/SignUp/SignUp";
-import ContuctUs from "../Pages/Home/ContuctUs"
 import Dashboard from "../Pages/Dashboard/Dashboard";
 import EmployeeDetail from "../Pages/Dashboard/HR/EmployeeDetail";
 import PrivateRoute from "./PrivateRoute";
+import Contact from "../Pages/ContactUs/Contact";
+import Home from "../Pages/Home/Home/Home";
 
 
 const router = createBrowserRouter([
@@ -16,7 +16,7 @@ const router = createBrowserRouter([
         children: [
             {
                 path: "/",
-                element: <Home></Home>,
+                element: <Home></Home> ,
             },
             {
                 path: "/dashboard",
@@ -29,7 +29,7 @@ const router = createBrowserRouter([
             },
             {
                 path: "/contact",
-                element: <ContuctUs></ContuctUs>,
+                element: <Contact></Contact>,
             },
             {
                 path: "/signin",

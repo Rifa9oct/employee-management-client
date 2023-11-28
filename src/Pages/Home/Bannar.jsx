@@ -1,6 +1,5 @@
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from 'react-responsive-carousel';
-import "keen-slider/keen-slider.min.css"
 import img1 from "../../assets/img1.png"
 import img2 from "../../assets/img2.png"
 import img3 from "../../assets/img3.png"

@@ -54,7 +54,7 @@ const Navbar = () => {
                 </div>
                 <div className="flex items-center gap-3">
                     <img className="w-[50px] mt-5" src={logo} />
-                    <h1 className="text-3xl font-bold text-black">Employee Management</h1>
+                    <h1 className="text-3xl font-bold text-black">TalentEase TECH</h1>
                 </div>
             </div>
 
