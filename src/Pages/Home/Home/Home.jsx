@@ -1,5 +1,8 @@
 import Bannar from "../Bannar";
-import Testimonials from "../Testimonials/Testimonials";
+import InTach from "../InTach";
+import Testimonials from "../Testimonials";
+
+
 
 
 const Home = () => {
@@ -7,7 +10,7 @@ const Home = () => {
         <div>
             <Bannar></Bannar>
             <Testimonials></Testimonials>
-           
+            <InTach></InTach>
         </div>
     );
 };

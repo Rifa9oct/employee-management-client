@@ -8,7 +8,7 @@ import { Autoplay, Pagination, Navigation } from 'swiper/modules';
 import axios from "axios";
 import { Rating } from '@smastrom/react-rating'
 import '@smastrom/react-rating/style.css'
-import SectionTitle from "../../../Shared/SectionTitle/SectionTitle";
+import SectionTitle from "../../Shared/SectionTitle/SectionTitle"
 
 
 
