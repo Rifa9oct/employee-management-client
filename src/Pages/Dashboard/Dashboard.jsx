@@ -9,7 +9,6 @@ const Dashboard = () => {
     const [isAdmin] = useAdmin();
     const [isHr] = useHr();
     const [isEmployee] = useEmployee();
-    console.log(isEmployee)
 
     return (
         <div>

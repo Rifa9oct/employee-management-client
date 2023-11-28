@@ -6,8 +6,8 @@ import Swal from "sweetalert2";
 import { FaCcAmazonPay } from "react-icons/fa6";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import SectionTitle from "../../../Shared/SectionTitle/SectionTitle";
-import SelectMonthYear from "../../../Shared/SelectMonthYear/SelectMonthYear";
 import { Link } from "react-router-dom";
+import Payment from "./Payment/Payment";
 
 
 const HrDashboard = () => {
@@ -119,13 +119,8 @@ const HrDashboard = () => {
                                             </form>
                                             <div>
                                                 <h1 className="font-bold text-2xl my-2 text-cyan-500 text-center">{item.name}</h1>
-                                                <h3 className="text-center">Salary : $ {item.salary}</h3>
-                                                <SelectMonthYear></SelectMonthYear>
-                                                <div className="flex justify-center">
-                                                    <button
-                                                        disabled={!item.verified}
-                                                        className="btn btn-sm px-7 mb-8 text-white bg-gradient-to-r to-cyan-400 from-blue-400 shadow-lg border-0 shadow-blue-500/50 hover:bg-gradient-to-r hover:to-cyan-500 hover:from-blue-500">Pay</button>
-                                                </div>
+                                                <h3 className="text-center mb-8">Salary : $ {item.salary}</h3>
+                                                <Payment item={item}></Payment>
                                             </div>
                                         </div>
                                     </dialog>
