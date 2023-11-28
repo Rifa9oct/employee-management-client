@@ -1,4 +1,5 @@
-import { useKeenSlider } from "keen-slider/react"
+import "react-responsive-carousel/lib/styles/carousel.min.css";
+import { Carousel } from 'react-responsive-carousel';
 import "keen-slider/keen-slider.min.css"
 import img1 from "../../assets/img1.png"
 import img2 from "../../assets/img2.png"
@@ -7,61 +8,30 @@ import img4 from "../../assets/img4.png"
 import img5 from "../../assets/img5.png"
 
 const Bannar = () => {
-    const [sliderRef] = useKeenSlider(
-        {
-            loop: true,
-        },
-        [
-            (slider) => {
-                let timeout
-                let mouseOver = false
-                function clearNextTimeout() {
-                    clearTimeout(timeout)
-                }
-                function nextTimeout() {
-                    clearTimeout(timeout)
-                    if (mouseOver) return
-                    timeout = setTimeout(() => {
-                        slider.next()
-                    }, 2000)
-                }
-                slider.on("created", () => {
-                    slider.container.addEventListener("mouseover", () => {
-                        mouseOver = true
-                        clearNextTimeout()
-                    })
-                    slider.container.addEventListener("mouseout", () => {
-                        mouseOver = false
-                        nextTimeout()
-                    })
-                    nextTimeout()
-                })
-                slider.on("dragStarted", clearNextTimeout)
-                slider.on("animationEnded", nextTimeout)
-                slider.on("updated", nextTimeout)
-            },
-        ]
-    )
-
     return (
         <div>
-            <div ref={sliderRef} className="keen-slider">
-                <div className="keen-slider__slide number-slide1">
-                    <img className=" w-full" src={img1} />
+            <Carousel autoPlay infiniteLoop showArrows={false} className="text-center">
+                <div className="relative">
+                    <img src={img1} />
+                    <h1 className=" bg-purple-800 p-[50px] text-white rounded-tr-[80px] rounded-bl-[80px] bg-opacity-20 text-5xl font-bold absolute top-[180px] left-[80px] border">ONE OF THE<br />FIRSTEST WAY<br />TO GROUTH</h1>
                 </div>
-                <div className="keen-slider__slide number-slide2">
-                    <img className=" w-full" src={img2} />
+                <div className="relative">
+                    <img src={img3} />
+                    <h1 className=" bg-cyan-900 py-[70px] px-[50px] text-white rounded-tr-[80px] rounded-bl-[80px] bg-opacity-40 text-5xl font-bold absolute top-[180px] left-[80px] border">TIME<br />MANAGEMENT</h1>
                 </div>
-                <div className="keen-slider__slide number-slide3">
-                    <img className=" w-full" src={img3} />
+                <div className="relative">
+                    <img src={img2} />
+                    <h1 className=" bg-amber-900 p-[50px] text-white rounded-tr-[80px] rounded-bl-[80px] bg-opacity-20 text-6xl font-bold absolute top-[200px] left-[80px] border">CREATIVE <br /> PROCESS</h1>
                 </div>
-                <div className="keen-slider__slide number-slide3">
-                    <img className=" w-full" src={img4} />
+                <div className="relative">
+                    <img src={img4} />
+                    <h1 className=" bg-slate-700 py-[70px] px-[50px] text-white rounded-tr-[80px] rounded-bl-[80px] bg-opacity-30 text-6xl font-bold absolute top-[200px] left-[80px] border">ANALYSIS</h1>
                 </div>
-                <div className="keen-slider__slide number-slide4">
-                    <img className=" w-full" src={img5} />
+                <div className="relative">
+                    <img src={img5} />
+                    <h1 className=" bg-stone-500 py-[70px] px-[50px] text-white rounded-tr-[80px] rounded-bl-[80px] bg-opacity-40 text-6xl font-bold absolute top-[200px] left-[80px] border">SUCCESS</h1>
                 </div>
-            </div>
+            </Carousel>
         </div>
     );
 };

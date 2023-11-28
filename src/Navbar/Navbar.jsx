@@ -39,7 +39,7 @@ const Navbar = () => {
     }
 
     return (
-        <div className="fixed z-10 md:bg-purple-100 md:bg-opacity-40 flex flex-col md:flex-row justify-between items-center px-5 lg:px-10 w-full">
+        <div className=" md:bg-purple-100 flex flex-col md:flex-row justify-between items-center px-5 lg:px-10 w-full">
             <div className="flex flex-row items-center">
                 <div className="relative mr-3 mt-3 block lg:hidden">
                     <div onClick={()=> setMenuDrop(!menuDrop)}><img src={list} alt="list icon" /></div>
@@ -50,7 +50,6 @@ const Navbar = () => {
                                     {navLinks}
                                 </ul>
                             </> : ""
-
                     }
                 </div>
                 <div className="flex items-center gap-3">
@@ -84,20 +83,20 @@ const Navbar = () => {
                                     dropdown ?
                                         <div>
                                             <p onClick={() => setDropdown(!dropdown)}><IoIosArrowUp className="text-2xl cursor-pointer text-black" /></p>
-                                            <div className="absolute z-10 top-[80px] right-[40px] w-[300px] rounded-lg shadow-lg transit bg-black bg-opacity-50">
+                                            <div className="absolute z-10 top-[80px] right-[40px] w-[300px] rounded-lg shadow-lg transit bg-purple-100">
                                                 <div className="flex items-center gap-2 justify-center pt-10">
                                                     {
                                                         user.photoURL ?
-                                                            <img className="w-[45px] h-[45px] mx-3 rounded-full " src={user.photoURL} /> :
-                                                            <img className="w-[45px] h-[45px] mx-3 rounded-full border-blue-900" src="https://i.ibb.co/VC1vhmp/user.png" />
+                                                            <img className="w-[50px] h-[50px] mx-3 rounded-full " src={user.photoURL} /> :
+                                                            <img className="w-[50px] h-[50px] mx-3 rounded-full border-blue-900" src="https://i.ibb.co/VC1vhmp/user.png" />
                                                     }
-                                                    <div className="text-white">
+                                                    <div className="text-black">
                                                         <p className="font-extrabold">{user.displayName}</p>
                                                         <p className="text-sm">{user.email}</p>
                                                     </div>
                                                 </div>
                                                 <div className="divider pt-5"></div>
-                                                <div onClick={handleLogOut} className="flex items-center gap-2 text-white ml-[70px] pt-4 pb-10 cursor-pointer ">
+                                                <div onClick={handleLogOut} className="flex items-center gap-2 text-black ml-[70px] pt-4 pb-10 cursor-pointer ">
                                                     <LuLogOut className="text-2xl" />
                                                     <a className="font-extrabold hover:text-lime-400">Sign Out</a>
                                                 </div>
