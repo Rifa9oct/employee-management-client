@@ -11,19 +11,20 @@ const InTach = () => {
         backgroundPosition: "center"
     };
     return (
-        <div className="my-20" style={bgImg}>
+        <div className="my-20 bg-fixed" style={bgImg}>
             <div className="text-center font-bold pt-10">
                 <p className="text-lg text-cyan-500">---- Get In Touch ----</p>
                 <h1 className="text-3xl text-white">Hey! Let’s Talk</h1>
             </div>
             <div className="flex justify-center gap-12 pt-10 pb-16">
-                <div className="w-[500px] h-[330px] bg-white rounded-lg">
+                <div className="w-[500px] h-[345px] bg-white rounded-lg">
                     <input type="text" placeholder="Name" className="bg-[#F7F7F7] rounded border text-sm px-3 py-2 w-[440px] mx-8 mt-10 " />
                     <input type="text" placeholder="Email" className="bg-[#F7F7F7] rounded border text-sm px-3 py-2 w-[440px] mx-8 my-3" />
                     <input type="text" placeholder="Phone" className="bg-[#F7F7F7] rounded border text-sm px-3 py-2 w-[440px] mx-8" />
                     <input type="" placeholder="Your message" className="bg-[#F7F7F7] rounded border text-sm px-3 py-2 w-[440px] pb-14 mx-8 my-3" />
+                    <input type="submit" className="px-3 py-2 bg-red-400 text-white rounded-lg hover:bg-red-500 mx-8" />
                 </div>
-                <div className="w-[300px] h-[330px] flex flex-col items-start pl-8 rounded-lg bg-white">
+                <div className="w-[300px] h-[345px] flex flex-col items-start pl-8 rounded-lg bg-white">
                     <div className="mt-9 flex items-center  gap-5 justify-center">
                         <div className="flex items-center">
                             <PiPhoneCallFill className="text-3xl text-red-500" />
@@ -62,7 +63,7 @@ const InTach = () => {
                             </div>
                         </div>
                     </div>
-                    <p className="text-center font-bold text-2xl mt-3 ml-3">Follow Us</p>
+                    <p className="text-center font-bold text-2xl mt-5 ml-3">Follow Us</p>
                     <div className="flex gap-6 text-blue-500 text-2xl ml-3 mt-2 list-none">
                         <li><FaFacebookSquare/></li>
                         <li><FaInstagram/></li>

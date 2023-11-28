@@ -7,11 +7,13 @@ import EmployeeDetail from "../Pages/Dashboard/HR/EmployeeDetail";
 import PrivateRoute from "./PrivateRoute";
 import Contact from "../Pages/ContactUs/Contact";
 import Home from "../Pages/Home/Home/Home";
+import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 
 
 const router = createBrowserRouter([
     {
         path: "/",
+        errorElement: <ErrorPage></ErrorPage>,
         element: <Root></Root>,
         children: [
             {
