@@ -1,4 +1,5 @@
 import Bannar from "../Bannar";
+import Footer from "../Footer";
 import InTach from "../InTach";
 import Testimonials from "../Testimonials";
 
@@ -11,6 +12,7 @@ const Home = () => {
             <Bannar></Bannar>
             <Testimonials></Testimonials>
             <InTach></InTach>
+            <Footer></Footer>
         </div>
     );
 };
