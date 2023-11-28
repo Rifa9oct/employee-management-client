@@ -52,6 +52,35 @@ const AdminDashboard = () => {
         });
     }
 
+    const handleFired = (user) => {
+        Swal.fire({
+            title: "Are you sure?",
+            text: "This employee is going to be fired !",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes !"
+        }).then((result) => {
+            if (result.isConfirmed) {
+                axiosSecure.patch(`/users/fired/${user._id}`)
+                    .then(res => {
+                        if (res.data.modifiedCount > 0) {
+                            refetch();
+                            Swal.fire({
+                                position: "top-center",
+                                icon: "success",
+                                title: `${user.name} is a Fired`,
+                                showCancelButton: false,
+                                timer: 1500
+                            });
+                        }
+                        refetch();
+                    })
+            }
+        });
+    }
+
     // State to manage current page
     const [currentPage, setCurrentPage] = useState(1);
     const usersPerPage = 5;
@@ -113,8 +142,10 @@ const AdminDashboard = () => {
                                             }
                                         </td>
                                         <td className="border-4 border-cyan-300">
-                                            <div>
-                                                <img className="w-[40px] mx-auto" src={firedImg} />
+                                            <div onClick={() => handleFired(item)} >
+                                               {
+                                                 item.fired ? <h1 className="font-bold text-red-500" >FIRED</h1> : <img className="w-[40px] mx-auto" src={firedImg} />
+                                               }
                                             </div>
                                         </td>
                                     </tr>

@@ -1,9 +1,10 @@
+import InTach from "../Home/InTach";
 
 
 const Contact = () => {
     return (
         <div>
-            <h1>contact</h1>
+            <InTach></InTach>
         </div>
     );
 };

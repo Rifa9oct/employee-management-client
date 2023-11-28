@@ -64,8 +64,6 @@ const InTach = () => {
                     </div>
                 </div>
             </div>
-
-
         </div>
     );
 };
