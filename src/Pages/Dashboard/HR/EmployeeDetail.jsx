@@ -1,23 +1,33 @@
 import { Link, useLoaderData } from "react-router-dom";
-import SectionTitle from "../../../Shared/SectionTitle/SectionTitle";
 import { FaArrowLeft } from "react-icons/fa6";
+import { useEffect, useState } from "react";
+
 
 
 const EmployeeDetail = () => {
     const data = useLoaderData();
-    // console.log(data)
+    const [users, setUsers] = useState([]);
+
+    useEffect(() => {
+        fetch(`http://localhost:5000/payments/${data.email}`, { credentials: "include" })
+            .then(res => res.json())
+            .then(data => setUsers(data))
+
+    }, [data.email])
+    console.log(users)
+
     return (
         <div className="mt-20">
             <Link to="/dashboard" className="rounded px-4 ml-20 py-2 text-blue-800 bg-gradient-to-r from-cyan-400 to-blue-400 shadow-lg shadow-blue-500/50 hover:bg-gradient-to-r hover:from-cyan-500 hover:to-blue-500">
-            <FaArrowLeft className="text-lg inline" /> Go Back
+                <FaArrowLeft className="text-lg inline" /> Go Back
             </Link>
-            <div>
-                <SectionTitle
-                    heading="Employee List"
-                    subTitle={data.name}
-                ></SectionTitle>
+            <div className="flex items-center justify-center gap-8 my-6">
+                <img className="w-[80px] h-[80px] rounded-full" src={data.image} />
+                <div>
+                    <h1 className="font-bold text-3xl header">{data.name}</h1>
+                    <p className="">{data.designation}</p>
+                </div>
             </div>
-            <h1>{data.name} Details</h1>
         </div>
     );
 };

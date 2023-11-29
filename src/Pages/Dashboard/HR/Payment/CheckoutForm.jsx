@@ -113,7 +113,7 @@ const CheckoutForm = ({ item }) => {
                 <div className="flex justify-evenly items-center mb-8">
                     <div>
                         <label className="font-bold">Month: <br /></label>
-                        <select id="month" value={month} onChange={handleMonthChange} className="border-2 px-3 mt-1 rounded border-cyan-400 w-[150px] p-1 ">
+                        <select id="month" required value={month} onChange={handleMonthChange} className="border-2 px-3 mt-1 rounded border-cyan-400 w-[150px] p-1 ">
                             <option value="">Select Month</option>
                             {months.map((m, index) => (
                                 <option key={index} value={m}>{m}</option>
@@ -122,7 +122,7 @@ const CheckoutForm = ({ item }) => {
                     </div>
                     <div>
                         <label className="font-bold">Year: <br /></label>
-                        <input type="number" id="year" value={year} onChange={handleYearChange} placeholder="Enter year" className="w-[150px] border-2 px-3 mt-1 rounded border-cyan-400 focus:outline-none p-1"
+                        <input type="number" id="year" value={year} onChange={handleYearChange} placeholder="Enter year" required className="w-[150px] border-2 px-3 mt-1 rounded border-cyan-400 focus:outline-none p-1"
                         />
                     </div>
                 </div>
