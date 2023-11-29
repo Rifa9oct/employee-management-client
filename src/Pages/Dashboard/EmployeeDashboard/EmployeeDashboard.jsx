@@ -62,32 +62,33 @@ const EmployeeDashboard = () => {
                         }
                     </tbody>
                 </table>
-                {/* Pagination controls */}
-                <div className="flex justify-center mt-4">
-                    <button
-                        onClick={() => handlePageChange(currentPage - 1)}
-                        disabled={currentPage === 1}
-                        className="btn bg-cyan-400 hover:bg-cyan-500"
-                    >
-                        Previous
-                    </button>
-                    <span className="mx-4">
-                        Page {currentPage} of {totalPages}
-                    </span>
-                    <button
-                        onClick={() => handlePageChange(currentPage + 1)}
-                        disabled={currentPage === totalPages}
-                        className="btn bg-cyan-400 hover:bg-cyan-500"
-                    >
-                        Next
-                    </button>
-                </div>
+            </div>
+            
+            {/* Pagination controls */}
+            <div className="flex justify-center mt-4">
+                <button
+                    onClick={() => handlePageChange(currentPage - 1)}
+                    disabled={currentPage === 1}
+                    className="btn bg-cyan-400 hover:bg-cyan-500"
+                >
+                    Previous
+                </button>
+                <span className="mx-4">
+                    Page {currentPage} of {totalPages}
+                </span>
+                <button
+                    onClick={() => handlePageChange(currentPage + 1)}
+                    disabled={currentPage === totalPages}
+                    className="btn bg-cyan-400 hover:bg-cyan-500"
+                >
+                    Next
+                </button>
+            </div>
 
-                <div className="flex justify-center my-10">
-                    <Link to="/worksheet">
-                        <button className="ml-5 py-2 rounded-full px-8 border-0 text-base outline outline-purple-500 hover:bg-purple-500 hover:text-white text-purple-500 font-bold hover:scale-105 transition">My Work Sheet</button>
-                    </Link>
-                </div>
+            <div className="flex justify-center my-10">
+                <Link to="/worksheet">
+                    <button className="ml-5 py-2 rounded-full px-8 border-0 text-base outline outline-purple-500 hover:bg-purple-500 hover:text-white text-purple-500 font-bold hover:scale-105 transition">My Work Sheet</button>
+                </Link>
             </div>
         </div>
     );
