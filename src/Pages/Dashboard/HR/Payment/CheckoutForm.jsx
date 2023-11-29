@@ -83,8 +83,7 @@ const CheckoutForm = ({ item }) => {
                     transactionId: paymentIntent.id,
                     date: new Date(),
                     amount: totalSalary,
-                    month: month,
-                    year: year
+                    monthYear: month + " " + year,
                 }
                 const res = await axiosSecure.post("/payments", payment);
                 console.log(res);
@@ -122,8 +121,11 @@ const CheckoutForm = ({ item }) => {
                     </div>
                     <div>
                         <label className="font-bold">Year: <br /></label>
-                        <input type="number" id="year" value={year} onChange={handleYearChange} placeholder="Enter year" required className="w-[150px] border-2 px-3 mt-1 rounded border-cyan-400 focus:outline-none p-1"
-                        />
+                        <select type="number" id="year" value={year} onChange={handleYearChange} placeholder="Enter year" required className="w-[150px] border-2 px-3 mt-1 rounded border-cyan-400 focus:outline-none p-1">
+                            <option value="">Selec Year</option>
+                            <option value="2023">2023</option>
+                            <option value="2024">2024</option>
+                        </select>
                     </div>
                 </div>
                 <CardElement

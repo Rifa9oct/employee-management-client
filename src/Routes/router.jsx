@@ -8,6 +8,7 @@ import PrivateRoute from "./PrivateRoute";
 import Contact from "../Pages/ContactUs/Contact";
 import Home from "../Pages/Home/Home/Home";
 import ErrorPage from "../Pages/ErrorPage/ErrorPage";
+import WorkSheet from "../Pages/Dashboard/EmployeeDashboard/WorkSheet"
 
 
 const router = createBrowserRouter([
@@ -28,6 +29,10 @@ const router = createBrowserRouter([
                 path: "/employeeDetails/:id",
                 element: <EmployeeDetail></EmployeeDetail>,
                 loader: ({params})=> fetch(`http://localhost:5000/users/${params.id}`)
+            },
+            {
+                path: "/worksheet",
+                element: <WorkSheet></WorkSheet>,
             },
             {
                 path: "/contact",

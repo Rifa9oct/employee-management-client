@@ -96,9 +96,9 @@ const Navbar = () => {
                                                     </div>
                                                 </div>
                                                 <div className="divider pt-5"></div>
-                                                <div onClick={handleLogOut} className="flex items-center gap-2 text-black ml-[70px] pt-4 pb-10 cursor-pointer ">
+                                                <div onClick={handleLogOut} className="flex items-center gap-2 text-black ml-[70px] pt-4 pb-10 cursor-pointer hover:text-cyan-500 ">
                                                     <LuLogOut className="text-2xl" />
-                                                    <a className="font-extrabold hover:text-lime-400">Sign Out</a>
+                                                    <a className="font-extrabold ">Sign Out</a>
                                                 </div>
                                             </div>
                                         </div>
