@@ -36,11 +36,11 @@ const EmployeeDashboard = () => {
     return (
         <div className="pt-16 mb-8">
             <SectionTitle
-                subTitle="Employee Only"
+                subTitle={user.displayName}
                 heading="PAYMENT HISTORY"
             ></SectionTitle>
 
-            <div className="overflow-x-auto mt-10 mb-20 mx-20">
+            <div className="overflow-x-auto mt-10 mx-20">
                 <table className="table border-4 border-cyan-300 max-w-[900px] mx-auto">
                     <thead className="bg-cyan-100 text-black">
                         <tr className="text-xl border-4 border-cyan-300 text-center">

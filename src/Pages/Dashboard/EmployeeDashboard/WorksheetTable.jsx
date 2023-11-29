@@ -41,7 +41,7 @@ const WorksheetTable = ({ users }) => {
         <div className='my-20'>
             <SectionTitle
                 subTitle={user.displayName}
-                heading="Work Sheet Form"
+                heading="Work Sheet Table"
             ></SectionTitle>
             
             <div className="overflow-x-auto mt-10 mx-20">

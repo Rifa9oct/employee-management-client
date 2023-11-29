@@ -157,7 +157,9 @@ const AdminDashboard = () => {
                     //card view
                     <CardGrid
                         currentUsers={currentUsers}
-                        handleMakeHr={handleMakeHr}>
+                        handleMakeHr={handleMakeHr}
+                        handleFired={handleFired}
+                    >
                     </CardGrid>
                 }
 
