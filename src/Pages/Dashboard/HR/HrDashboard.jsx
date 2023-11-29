@@ -8,7 +8,6 @@ import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import SectionTitle from "../../../Shared/SectionTitle/SectionTitle";
 import { Link } from "react-router-dom";
 import Payment from "./Payment/Payment";
-import SelectMonthYear from "../../../Shared/SelectMonthYear/SelectMonthYear"
 
 
 const HrDashboard = () => {
@@ -121,7 +120,6 @@ const HrDashboard = () => {
                                             <div>
                                                 <h1 className="font-bold text-2xl my-2 text-cyan-500 text-center">{item.name}</h1>
                                                 <h3 className="text-center mb-8">Salary : $ {item.salary}</h3>
-                                                <SelectMonthYear></SelectMonthYear>
                                                 <Payment item={item}></Payment>
                                             </div>
                                         </div>
