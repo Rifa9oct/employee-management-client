@@ -36,14 +36,14 @@ const Testimonials = () => {
                 {
                     reviews.map(review => <SwiperSlide key={review._id}>
                         <div className="lg:w-[1200px] lg:h-[400px] bg-blue-100 rounded mx-auto mt-5">
-                            <div className="flex justify-around items-center">
+                            <div className="flex pb-10 text-center md:text-start flex-col md:flex-row justify-around items-center">
                                 <div className="py-12 pl-12">
-                                    <img className="w-[250px] h-[250px] lg:w-[300px] lg:h-[300px] rounded-full" src={review.img} />
+                                    <img className="w-[200px] h-[200px] md:w-[250px] md:h-[250px] lg:w-[300px] lg:h-[300px] rounded-full" src={review.img} />
                                 </div>
-                                <div className="w-2/4">
-                                    <p className="text-slate-500 text-sm lg:text-base">{review.description}</p>
+                                <div className="w-2/4 ">
+                                    <p className="text-slate-500  text-sm lg:text-base">{review.description}</p>
                                     <Rating
-                                        className="mt-3"
+                                        className="mt-3 mx-auto md:mx-0"
                                         style={{ maxWidth: 120 }}
                                         value={review.rating}
                                         readOnly

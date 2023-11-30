@@ -16,11 +16,11 @@ const InTach = () => {
                 <h1 className="text-3xl text-white">Hey! Let’s Talk</h1>
             </div>
             <div className="flex justify-center flex-col lg:flex-row  gap-12 pt-10 pb-16">
-                <div className="w-[500px] mx-auto h-[345px] bg-white rounded-lg">
-                    <input type="text" placeholder="Name" className="bg-[#F7F7F7] rounded border text-sm px-3 py-2 w-[440px] mx-8 mt-10 " />
-                    <input type="text" placeholder="Email" className="bg-[#F7F7F7] rounded border text-sm px-3 py-2 w-[440px] mx-8 my-3" />
-                    <input type="text" placeholder="Phone" className="bg-[#F7F7F7] rounded border text-sm px-3 py-2 w-[440px] mx-8" />
-                    <input type="" placeholder="Your message" className="bg-[#F7F7F7] rounded border text-sm px-3 py-2 w-[440px] pb-14 mx-8 my-3" />
+                <div className="md:w-[500px] mx-auto h-[345px] bg-white rounded-lg">
+                    <input type="text" placeholder="Name" className="bg-[#F7F7F7] rounded border text-sm px-3 py-2 w-[350px] md:w-[440px] mx-8 mt-10 " />
+                    <input type="text" placeholder="Email" className="bg-[#F7F7F7] rounded border text-sm px-3 py-2 w-[350px] md:w-[440px] mx-8 my-3" />
+                    <input type="text" placeholder="Phone" className="bg-[#F7F7F7] rounded border text-sm px-3 py-2 w-[350px] md:w-[440px] mx-8" />
+                    <input type="" placeholder="Your message" className="bg-[#F7F7F7] rounded border text-sm px-3 py-2 w-[350px] md:w-[440px] pb-14 mx-8 my-3" />
                     <input type="submit" className="px-3 py-2 bg-red-400 text-white rounded-lg hover:bg-red-500 mx-8" />
                 </div>
                 <div className="w-[300px] h-[345px] mx-auto flex flex-col items-start pl-10 rounded-lg justify-center bg-white">
