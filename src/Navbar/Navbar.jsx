@@ -1,5 +1,5 @@
 import { useContext, useState } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import logo from "../assets/logo.png"
 import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
@@ -12,6 +12,7 @@ const Navbar = () => {
     const { user, logOut } = useContext(AuthContext);
     const [dropdown, setDropdown] = useState(false);
     const [menuDrop, setMenuDrop] = useState(false);
+    const navigate = useNavigate();
 
     const navLinks = <>
         <li> <NavLink to="/" className={({ isActive, isPending }) =>
@@ -34,19 +35,20 @@ const Navbar = () => {
                     'Sign Out successfully',
                     'success'
                 )
+                navigate("/");
             })
             .catch(error => console.error(error))
     }
 
     return (
-        <div className=" md:bg-purple-100 flex flex-col md:flex-row justify-between items-center px-5 lg:px-10 w-full">
+        <div className="md:bg-purple-100 flex flex-col md:flex-row justify-between items-center px-5 lg:px-10 w-full">
             <div className="flex flex-row items-center">
                 <div className="relative mr-3 mt-3 block lg:hidden">
                     <div onClick={()=> setMenuDrop(!menuDrop)}><img src={list} alt="list icon" /></div>
                     {
                         menuDrop ?
                             <>
-                                <ul tabIndex={0} className="transition rounded-lg absolute flex top-[30px] left-0 flex-col gap-4 mt-3 p-6 py-6 shadow-lg bg-purple-100 bg-opacity-40 w-[200px]">
+                                <ul tabIndex={0} className="transition rounded-lg absolute flex top-[30px] left-0 flex-col gap-4 mt-3 p-6 py-6 shadow-lg bg-purple-100  z-10 w-[200px]">
                                     {navLinks}
                                 </ul>
                             </> : ""
@@ -64,7 +66,7 @@ const Navbar = () => {
                 </ul>
             </div>
 
-            <div className="">
+            <div>
                 {
                     user ?
                         <div className="flex items-center">

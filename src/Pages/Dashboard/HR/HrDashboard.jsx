@@ -66,7 +66,7 @@ const HrDashboard = () => {
 
     return (
         <div>
-            <div className="pt-32 mb-8">
+            <div className="mt-10 mb-8">
                 <SectionTitle
                     subTitle="Hr Only"
                     heading="EMPLOYEE LIST"

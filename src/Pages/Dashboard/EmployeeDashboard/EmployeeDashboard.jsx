@@ -7,7 +7,7 @@ const EmployeeDashboard = () => {
     const [datas, setDatas] = useState([]);
 
     useEffect(() => {
-        fetch(`http://localhost:5000/payments/${user.email}`, { credentials: "include" })
+        fetch(`https://employee-management-server-omega.vercel.app/payments/${user.email}`, { credentials: "include" })
             .then(res => res.json())
             .then(data => {
                 const sortedData = data.sort((a, b) => {

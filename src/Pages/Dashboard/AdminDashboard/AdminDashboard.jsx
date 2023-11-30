@@ -98,7 +98,7 @@ const AdminDashboard = () => {
     };
 
     return (
-        <div className="mb-20 pt-32">
+        <div className="mb-20 pt-16">
             <SectionTitle
                 heading="All EMPLOYEE LIST"
                 subTitle="Admin Only"
@@ -114,7 +114,7 @@ const AdminDashboard = () => {
                 {viewMode === "table" ?
                     // table view
                     < div className="overflow-x-auto mt-10 max-w-[900px] mx-auto">
-                        <table className="table border-4 border-cyan-300">
+                        <table className="table border-4 border-cyan-300 m-5 lg:m-0">
                             <thead className="bg-cyan-100 text-black">
                                 <tr className="text-xl border-4 border-cyan-300 text-center">
                                     <th className="border-4 border-cyan-300">Index</th>
@@ -144,7 +144,7 @@ const AdminDashboard = () => {
                                         <td className="border-4 border-cyan-300">
                                             <div onClick={() => handleFired(item)} >
                                                {
-                                                 item.fired ? <h1 className="font-bold text-red-500" >FIRED</h1> : <img className="w-[40px] mx-auto" src={firedImg} />
+                                                 item.fired ? <h1 className="font-bold text-red-500 text-center" >FIRED</h1> : <img className="w-[40px] mx-auto" src={firedImg} />
                                                }
                                             </div>
                                         </td>

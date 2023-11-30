@@ -9,7 +9,7 @@ const EmployeeDetail = () => {
     const [users, setUsers] = useState([]);
 
     useEffect(() => {
-        fetch(`http://localhost:5000/payments/${data.email}`, { credentials: "include" })
+        fetch(`https://employee-management-server-omega.vercel.app/payments/${data.email}`, { credentials: "include" })
             .then(res => res.json())
             .then(data => setUsers(data))
 

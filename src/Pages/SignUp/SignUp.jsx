@@ -53,7 +53,7 @@ const Signup = () => {
                     }
                     const usersCreate = await axiosPublic.post("/users", userInfo);
 
-                    if (usersCreate.data.insertedId) {
+                    if (usersCreate.data) {
                         Swal.fire("Great!", "Sign up successfully", "success");
                         updateProfile(result.user, {
                             displayName: userInfo.name,

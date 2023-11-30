@@ -2,13 +2,13 @@ import { createBrowserRouter } from "react-router-dom";
 import Root from "../Layout/Root";
 import SignIn from "../Pages/SignIn/SignIn";
 import SignUp from "../Pages/SignUp/SignUp";
-import Dashboard from "../Pages/Dashboard/Dashboard";
 import EmployeeDetail from "../Pages/Dashboard/HR/EmployeeDetail";
-import PrivateRoute from "./PrivateRoute";
 import Contact from "../Pages/ContactUs/Contact";
 import Home from "../Pages/Home/Home/Home";
 import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 import WorkSheet from "../Pages/Dashboard/EmployeeDashboard/WorkSheet"
+import PrivateRoute from "./PrivateRoute";
+import Dashboard from "../Pages/Dashboard/Dashboard";
 
 
 const router = createBrowserRouter([
@@ -28,7 +28,7 @@ const router = createBrowserRouter([
             {
                 path: "/employeeDetails/:id",
                 element: <EmployeeDetail></EmployeeDetail>,
-                loader: ({params})=> fetch(`http://localhost:5000/users/${params.id}`)
+                loader: ({params})=> fetch(`https://employee-management-server-omega.vercel.app/users/${params.id}`)
             },
             {
                 path: "/worksheet",

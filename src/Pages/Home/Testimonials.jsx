@@ -15,7 +15,7 @@ import SectionTitle from "../../Shared/SectionTitle/SectionTitle"
 const Testimonials = () => {
     const [reviews, setReviews] = useState([]);
     useEffect(() => {
-        axios("http://localhost:5000/reviews")
+        axios("https://employee-management-server-omega.vercel.app/reviews")
             .then(res => setReviews(res.data))
     }, [])
 
@@ -35,13 +35,13 @@ const Testimonials = () => {
             >
                 {
                     reviews.map(review => <SwiperSlide key={review._id}>
-                        <div className="w-[1200px] h-[400px] bg-blue-100 rounded mx-auto mt-5">
+                        <div className="lg:w-[1200px] lg:h-[400px] bg-blue-100 rounded mx-auto mt-5">
                             <div className="flex justify-around items-center">
                                 <div className="py-12 pl-12">
-                                    <img className="w-[300px] h-[300px] rounded-full" src={review.img} />
+                                    <img className="w-[250px] h-[250px] lg:w-[300px] lg:h-[300px] rounded-full" src={review.img} />
                                 </div>
                                 <div className="w-2/4">
-                                    <p className="text-slate-500">{review.description}</p>
+                                    <p className="text-slate-500 text-sm lg:text-base">{review.description}</p>
                                     <Rating
                                         className="mt-3"
                                         style={{ maxWidth: 120 }}

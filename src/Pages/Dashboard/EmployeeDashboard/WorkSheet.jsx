@@ -14,10 +14,10 @@ const WorkSheet = () => {
     const { data: users = [], refetch } = useQuery({
         queryKey: ["users", user?.email],
         queryFn: async () => {
-          const res = await axiosSecure.get(`/worksheet/${user.email}`, { withCredentials: true });
-          return res.data;
+            const res = await axiosSecure.get(`/worksheet/${user.email}`, { withCredentials: true });
+            return res.data;
         },
-      });
+    });
 
     const handleSubmit = e => {
         e.preventDefault();
@@ -29,7 +29,7 @@ const WorkSheet = () => {
         const workSheet = { name, email, task, workHour, startDate }
         axiosSecure.post("/worksheet", workSheet)
             .then(res => {
-                if (res.data.insertedId) {
+                if (res.data) {
                     Swal.fire("Great!", "Worksheet added successfully", "success");
                 }
                 e.target.reset();
@@ -41,8 +41,8 @@ const WorkSheet = () => {
 
     return (
         <div>
-            <h1 className="header text-4xl font-bold mt-16 text-center">Work Sheet Form</h1>
-            <div className="w-[800px] bg-cyan-100 mx-auto rounded-lg mt-10 p-10">
+            <h1 className="header text-4xl font-bold mt-16 text-center m-5">Work Sheet Form</h1>
+            <div className="lg:w-[800px] bg-cyan-100 mx-auto rounded-lg mt-10 p-10">
                 <form onSubmit={handleSubmit}>
                     <div className="flex justify-center gap-6 items-center">
                         <select name="task" required className="w-[200px] border-2 px-3 mt-1 rounded border-cyan-400 focus:outline-none p-1">
