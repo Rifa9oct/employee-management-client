@@ -14,33 +14,33 @@ const Footer = () => {
                         <li><FaTwitter /></li>
                     </div>
                 </div>
-                <div className="flex gap-10 justify-center">
+                <div className="flex gap-10 lg:gap-40 justify-center">
                     <div>
                         <h1 className="font-bold text-2xl">Quick Links</h1>
-                        <ul>
-                            <a><li className="hover:underline text-sm cursor-pointer">Home</li></a>
-                            <a><li className="hover:underline text-sm cursor-pointer">About</li></a>
-                            <a><li className="hover:underline text-sm cursor-pointer">Supports</li></a>
-                            <a><li className="hover:underline text-sm cursor-pointer">Products</li></a>
-                            <a><li className="hover:underline text-sm cursor-pointer">Contact</li></a>
+                        <ul className="text-sm lg:text-base">
+                            <a><li className="hover:underline cursor-pointer">Home</li></a>
+                            <a><li className="hover:underline cursor-pointer">About</li></a>
+                            <a><li className="hover:underline cursor-pointer">Supports</li></a>
+                            <a><li className="hover:underline cursor-pointer">Products</li></a>
+                            <a><li className="hover:underline cursor-pointer">Contact</li></a>
                         </ul>
                     </div>
                     <div>
                         <h1 className="font-bold text-xl md:text-2xl">Company</h1>
-                        <ul>
-                            <a><li className="hover:underline text-sm cursor-pointer">How we works?</li></a>
-                            <a><li className="hover:underline text-sm cursor-pointer">Security</li></a>
-                            <a><li className="hover:underline text-sm cursor-pointer">Selling</li></a>
-                            <a><li className="hover:underline text-sm cursor-pointer">Capital</li></a>
+                        <ul className="text-base">
+                            <a><li className="hover:underline cursor-pointer">How we works?</li></a>
+                            <a><li className="hover:underline cursor-pointer">Security</li></a>
+                            <a><li className="hover:underline cursor-pointer">Selling</li></a>
+                            <a><li className="hover:underline cursor-pointer">Capital</li></a>
                         </ul>
                     </div>
                     <div>
                         <h1 className="font-bold text-xl md:text-2xl">Help</h1>
-                        <ul>
-                            <a><li className="hover:underline text-sm cursor-pointer">Privacy</li></a>
-                            <a><li className="hover:underline text-sm cursor-pointer"> Condition</li></a>
-                            <a><li className="hover:underline text-sm cursor-pointer">Blog</li></a>
-                            <a><li className="hover:underline text-sm cursor-pointer">FAQs</li></a>
+                        <ul className="text-base">
+                            <a><li className="hover:underline cursor-pointer">Privacy</li></a>
+                            <a><li className="hover:underline cursor-pointer"> Condition</li></a>
+                            <a><li className="hover:underline cursor-pointer">Blog</li></a>
+                            <a><li className="hover:underline cursor-pointer">FAQs</li></a>
                         </ul>
                     </div>
                 </div>
