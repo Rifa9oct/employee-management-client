@@ -1,0 +1,10 @@
+.description {
+    transform: translateY(-250px);
+    transition: 0.3s;
+    opacity: 0;
+}
+
+.card-content:hover>.description {
+    opacity: 1;
+    transform: translateY(-90px);
+}

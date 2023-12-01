@@ -1,0 +1,38 @@
+[
+    {
+        "id": 1,
+        "name": "HR Consulting",
+        "image": "https://i.ibb.co/vDDcphF/1.png",
+        "description": "Your strategic partner in HR, providing expert consulting services tailored to optimize your workforce and drive organizational success."
+    },
+    {
+        "id": 2,
+        "name": "Payroll Services",
+        "image": "https://i.ibb.co/vhHps3g/2.png",
+        "description": "Precision in payrollour comprehensive services ensure accurate and timely payroll processing for a seamless financial workflow."
+    },
+    {
+        "id": 3,
+        "name": "Employee Training",
+        "image": "https://i.ibb.co/Rc8nSJj/3.png",
+        "description": "Empowering your team through targeted training programs, unlocking potential and fostering continuous professional growth."
+    },
+    {
+        "id": 4,
+        "name": "Employee Engagement",
+        "image": "https://i.ibb.co/hVyw4t9/3.png",
+        "description": "Elevate your workplace culturewe specialize in creating environments where every employee is motivated and engaged."
+    },
+    {
+        "id": 5,
+        "name": "Recruitment Services",
+        "image": "https://i.ibb.co/hLPfX4z/5.png",
+        "description": "Connecting top-tier talent with leading companies – your recruitment solution for building high-performance teams."
+    },
+    {
+        "id": 6,
+        "name": "Technology Integration",
+        "image": "https://i.ibb.co/55pR0xg/6.png",
+        "description": "Seamlessly integrate cutting-edge HR technology, optimizing your processes for efficiency and innovation."
+    }
+]
