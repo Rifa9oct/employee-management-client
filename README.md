@@ -1,10 +1,12 @@
 
 ## Employee Management
 
-## 
-
-## 🔗 Links
+## 🔗Website Links
 https://tricky-earthquake.surge.sh
+
+## 🔗Server Side Links
+https://github.com/Rifa9oct/employee-management-server
+
 ## Admin Email: kawser@gmail.com
 ## Admin Password: 12345A#
 
@@ -17,4 +19,7 @@ https://tricky-earthquake.surge.sh
 - Employee List Display
 - Pagination Controls
 - Responsive Design
+
+## Uses Technologies
+- Firebase, Tailwind, Mongoose, React, JWT, daisyui
 
