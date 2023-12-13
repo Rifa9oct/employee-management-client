@@ -7,7 +7,6 @@ import EmployeeDashboard from "./EmployeeDashboard/EmployeeDashboard";
 
 const Dashboard = () => {
     const [isAdmin] = useAdmin();
-    console.log(isAdmin)
     const [isHr] = useHr();
     const [isEmployee] = useEmployee();
 
