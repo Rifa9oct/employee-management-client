@@ -2,7 +2,7 @@
 ## Employee Management
 
 ## 🔗Website Links
-https://tricky-earthquake.surge.sh
+https://employee-management-client.vercel.app
 
 ## 🔗Server Side Links
 https://github.com/Rifa9oct/employee-management-server
